@@ -1,15 +1,17 @@
 [directory]
-format = "[on](red) $path "
+format = "[in](#7f745b) [$path](#82c0af) "
 
 [character]
 success_symbol = "[#](blue)"
+error_symbol	=  "[#](red)"
 
 [username]
-format = "🍙 💮 [$user]($style) "
-style_user = 'green bold'
-style_root = 'black bold'
+format = "🍙 💮 [$user](#d4c787) "
 disabled = false
 show_always = true
+
+[git_branch]
+format = '[on](#7f745b) [$symbol$branch(:$remote_branch)]($style) '
 
 [git_status]
 format = '$all_status$ahead_behind '
@@ -19,3 +21,5 @@ deleted = "❌"
 renamed = "🎎"
 conflicted = "👹"
 untracked = "🐣"
+
+
