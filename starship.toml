@@ -5,7 +5,7 @@ format = "[on](red) $path "
 success_symbol = "[#](blue)"
 
 [username]
-format = "🍙 [$user]($style) in "
+format = "🍙 💮 [$user]($style) "
 style_user = 'green bold'
 style_root = 'black bold'
 disabled = false
@@ -13,6 +13,9 @@ show_always = true
 
 [git_status]
 format = '$all_status$ahead_behind '
-modified = "🔴"
-staged = "🚄"
-up_to_date = "Hello"
+staged = "🚅"
+modified = "🚀"
+deleted = "❌"
+renamed = "🎎"
+conflicted = "👹"
+untracked = "🐣"
