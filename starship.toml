@@ -2,10 +2,10 @@
 format = "[on](red) $path "
 
 [character]
-success_symbol = "   [#](blue)"
+success_symbol = "[#](blue)"
 
 [username]
-format = "   🍙 [$user]($style) in "
+format = "🍙 [$user]($style) in "
 style_user = 'green bold'
 style_root = 'black bold'
 disabled = false
