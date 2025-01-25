@@ -10,3 +10,7 @@ style_root = 'black bold'
 format = '[$user]($style)'
 disabled = false
 show_always = true
+
+[git_status]
+format = '$all_status$ahead_behind '
+modified = "🔴"
