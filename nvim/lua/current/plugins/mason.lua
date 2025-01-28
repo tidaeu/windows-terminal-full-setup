@@ -5,8 +5,6 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
-        local settings = require "current.lsp_settings"
-        print(settings)
         require("mason").setup()
 
         require("mason-lspconfig").setup({

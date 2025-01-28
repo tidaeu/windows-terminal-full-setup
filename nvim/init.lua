@@ -1,5 +1,4 @@
 require("current.keymappings")
-require("current.lsp_settings")
 require("current.lazy")
 require("current.settings")
 require("current.commands")
