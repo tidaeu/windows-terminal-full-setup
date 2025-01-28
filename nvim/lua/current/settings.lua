@@ -21,4 +21,11 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '🔴',
+            [vim.diagnostic.severity.WARN] = '🔵',
+        },
+    },
+})
