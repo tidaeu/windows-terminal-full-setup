@@ -1,5 +1,5 @@
 [directory]
-format = "[in](#7f745b) [$path](#82c0af) "
+format = "[in](#7f745b) 📂 [$path](#82c0af) "
 
 [character]
 success_symbol = "[#](blue)"
@@ -21,3 +21,6 @@ deleted = "❌"
 renamed = "🎎"
 conflicted = "👹"
 untracked = "🐣"
+
+[lua]
+symbol = " "
