@@ -16,6 +16,7 @@ return {
         border = "rounded",
         win_options = {
           winblend = 0,
+        winhl = "Normal:Normal,Float:Float",
           }
         }
       }
