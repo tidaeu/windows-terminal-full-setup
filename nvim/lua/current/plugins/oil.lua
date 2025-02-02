@@ -9,17 +9,16 @@ return {
       require('oil').setup{
         float = {
         -- Padding around the floating window
-        padding = 2,
+        padding = 0,
         -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
-        max_width = 40,
-        max_height = 40,
+        max_width = 70,
+        max_height = 20,
         border = "rounded",
         win_options = {
           winblend = 0,
           }
         }
       }
-
 
       vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
