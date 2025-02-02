@@ -7,10 +7,30 @@ vim.cmd[[
   augroup END
 ]]
 
--- Lua version (init.lua)
--- vim.api.nvim_create_autocmd("BufWinEnter", {
---   pattern = "*",
---   callback = function()
---     print("Number of open windows: " .. vim.api.nvim_call_function('winnr', {'$'}))
---   end
--- })
+-- Dashboard Specific
+-- open Dashboard if last buffer
+vim.api.nvim_create_autocmd(
+    'BufDelete',
+    {
+        callback = function (event)
+            for buf = 1, vim.fn.bufnr('$') do
+                if buf ~= event.buf and vim.fn.buflisted(buf) == 1 then
+                    if vim.api.nvim_buf_get_name(buf) ~= '' and vim.bo[buf].filetype ~= 'dashboard' then
+                        return
+                    end
+                end
+            end
+
+            vim.cmd('Dashboard')
+        end,
+    }
+)
+
+-- Open Dashboard through commandline if no arguments
+vim.api.nvim_create_autocmd("VimEnter", {
+				callback = function()
+								if vim.fn.argv(0) == "" then
+                    vim.cmd('Dashboard')
+								end
+				end,
+})
