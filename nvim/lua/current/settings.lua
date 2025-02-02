@@ -14,7 +14,8 @@ local options = {
 	autoindent = true,
 	smartindent = true,
 	hidden = true,
-	cursorline = true
+	cursorline = true,
+  wrap = false
 }
 
 for k, v in pairs(options) do
