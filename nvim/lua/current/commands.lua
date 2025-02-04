@@ -9,29 +9,32 @@ vim.cmd[[
 
 -- Dashboard Specific
 -- open Dashboard if last buffer
-vim.api.nvim_create_autocmd(
-    'BufDelete',
-    {
-        callback = function (event)
-            for buf = 1, vim.fn.bufnr('$') do
-                if buf ~= event.buf and vim.fn.buflisted(buf) == 1 then
-                    if vim.api.nvim_buf_get_name(buf) ~= '' and vim.bo[buf].filetype ~= 'dashboard' then
-                        return
-                    end
-                end
-            end
+-- vim.api.nvim_create_autocmd(
+--     'BufWinLeave',
+--     {
+--         callback = function ()
+--           local buffers = vim.fn.execute("ls")
+--           local count = 0
+--           -- Match only lines that represent buffers, typically starting with a number followed by a space
+--           for line in string.gmatch(buffers, "[^\r\n]+") do
+--             if string.match(line, "^%s*%d+") and not string.match(line, "No Name") then
+--                 count = count + 1
+--             end
+--           end
 
-            -- vim.cmd('Oil --float')
-        end,
-    }
-)
+          -- if count == 0 then
+
+            -- print("Count is 0")
+              -- vim.cmd('Oil --float')
+          -- end
+--         end,
+--     }
+-- )
 
 -- Open Dashboard through commandline if no arguments
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = vim.schedule_wrap(function(data)
-		vim.print(vim.fn.isdirectory(data.file))
 		if data.file == "" or vim.fn.isdirectory(data.file) ~= 0 then
-       vim.print(data.file)
        vim.cmd('Oil --float')
 		end
 	end),
