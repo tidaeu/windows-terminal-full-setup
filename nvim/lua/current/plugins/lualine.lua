@@ -36,9 +36,9 @@ return {
 
     local config = {
       options = {
-        component_separators = "",
+        component_separators = ">",
         section_separators = "",
-        always_show_tabline = true,
+        always_show_tabline = false,
         theme = {
           normal = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg } },
           inactive = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg} },
@@ -64,7 +64,7 @@ return {
         lualine_x = {},
         },
       tabline = {
-        lualine_a = {},
+        lualine_a = {'filename'},
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
@@ -82,11 +82,12 @@ return {
       inactive_winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
+        lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}
-      }
+      },
+      height = 4
     }
 
     local mode_map = {
@@ -109,10 +110,6 @@ return {
       ['MORE'] = 'M',
     }
 
-    local function winbar_data(component)
-      table.insert(config.winbar.lualine_a, component)
-    end
-
     local function ins_left(component)
       table.insert(config.sections.lualine_c, component)
     end
@@ -129,10 +126,12 @@ return {
       V = palette_colors.autumnGreen,
     }
 
-    winbar_data {
-      'filename',
-      color = { '#FFFFFF' }
-    }
+    -- winbar_data {
+    --   'filename',
+    --   path = 3,
+    --   cond = conditions.buffer_not_empty,
+    --   color = { 'palette_colors.oldWhite' }
+    -- }
 
     -- left items
     ins_left {
@@ -140,7 +139,7 @@ return {
         return '▊'
       end,
       color = function()
-        return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink,}
+        return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink }
       end,
       padding = { left = 0, right = 1 },
     }

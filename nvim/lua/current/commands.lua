@@ -21,18 +21,20 @@ vim.api.nvim_create_autocmd(
                 end
             end
 
-            vim.cmd('Dashboard')
+            -- vim.cmd('Oil --float')
         end,
     }
 )
 
 -- Open Dashboard through commandline if no arguments
 vim.api.nvim_create_autocmd("VimEnter", {
-				callback = function()
-								if vim.fn.argv(0) == "" then
-                    vim.cmd('Dashboard')
-								end
-				end,
+	callback = vim.schedule_wrap(function(data)
+		vim.print(vim.fn.isdirectory(data.file))
+		if data.file == "" or vim.fn.isdirectory(data.file) ~= 0 then
+       vim.print(data.file)
+       vim.cmd('Oil --float')
+		end
+	end),
 })
 
 -- Clear command line immediately after execution
@@ -41,4 +43,19 @@ vim.api.nvim_create_autocmd('CmdlineLeave', {
   callback = function()
     vim.cmd('echom ""')
   end,
+})
+
+-- Function to close Oil
+local function close_oil()
+  for _, buf in ipairs(vim.fn.getbufinfo({bufloaded = true})) do
+    if string.match(vim.fn.bufname(buf.bufnr), "oil://") then
+      vim.cmd("bd " .. buf.bufnr)
+    end
+  end
+end
+
+-- Autocmd to run the function when Telescope opens
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'TelescopePreviewerLoaded',
+  callback = close_oil,
 })

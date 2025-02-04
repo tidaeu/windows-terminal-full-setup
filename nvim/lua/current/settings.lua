@@ -17,7 +17,9 @@ local options = {
 	cursorline = true,
 	wrap = false,
 	showmode = false,
-  ruler = false
+  ruler = false,
+  laststatus = 3,
+  cmdheight = 1
 }
 
 for k, v in pairs(options) do
