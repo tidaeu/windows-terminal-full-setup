@@ -34,3 +34,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
 								end
 				end,
 })
+
+-- Clear command line immediately after execution
+vim.api.nvim_create_autocmd('CmdlineLeave', {
+  pattern = '*',
+  callback = function()
+    vim.cmd('echom ""')
+  end,
+})
