@@ -10,3 +10,7 @@ Add-Content -Path $profilePath -Value $lineToAdd
 
 winget install Neovim.Neovim
 winget install CoreyButler.NVMforWindows 
+
+# Telescope dependencies
+winget install --id=BurntSushi.ripgrep.MSVC  -e
+winget install --id=sharkdp.fd  -e

@@ -18,7 +18,7 @@
     -- Match only lines that represent buffers, typically starting with a number followed by a space
     for line in string.gmatch(buffers, "[^\r\n]+") do
       if string.match(line, "^%s*%d+") and not string.match(line, "No Name") and not string.match(line, "oil://") then
-          print(line)
+          -- print(line)
           count = count + 1
       end
     end
