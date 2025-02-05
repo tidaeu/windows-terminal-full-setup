@@ -19,7 +19,9 @@ local options = {
 	showmode = false,
   ruler = false,
   laststatus = 3,
-  cmdheight = 1
+  cmdheight = 1,
+  signcolumn = 'yes',
+	statuscolumn = ' %@NumCb@%4r%=%T %@SignCb@%s%=%T'
 }
 
 for k, v in pairs(options) do

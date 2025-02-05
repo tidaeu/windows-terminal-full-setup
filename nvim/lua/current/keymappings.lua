@@ -9,3 +9,4 @@ vim.api.nvim_set_keymap('n', '<A-j>', '<C-w>j', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<A-k>', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
