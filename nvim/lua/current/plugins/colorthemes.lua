@@ -25,7 +25,14 @@ return {
       },
       overrides = function(colors)
         local theme = colors.theme
+        local palette = colors.palette
         return {
+          GitSignsAdd = { fg = "#000000" },
+          GitSignsChange = { fg = "#000000" },
+          DiagnosticError = { fg = palette.peachRed },
+          DiagnosticWarn = { fg = palette.surimiOrange },
+          DiagnosticInfo = { fg = palette.springGreen },
+          DiagnosticsHint = { fg = palette.crystalBlue },
           NormalFloat = { bg = 'none' },
           FloatBorder = { bg = 'none' },
           FloatTitle = { bg = 'none' },
@@ -42,23 +49,19 @@ return {
       end,
     }
 
-    vim.cmd 'colorscheme kanagawa'
-    local kanagawa = require('kanagawa.colors')
-    local palette_colors = kanagawa.setup().palette
-
-    --Set up Diagnostics
-    vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = palette_colors.peachRed})
-    vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = palette_colors.surimiOrange})
-    vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = palette_colors.crystalBlue})
-    vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = palette_colors.springGreen})
+    vim.cmd.colorscheme "kanagawa-wave"
 
     vim.diagnostic.config({
         signs = {
             text = {
-                [vim.diagnostic.severity.ERROR] = '▌',
-                [vim.diagnostic.severity.WARN] = '▌',
-                [vim.diagnostic.severity.HINT] = '▌',
-                [vim.diagnostic.severity.INFO] = '▌',
+                [vim.diagnostic.severity.ERROR] = '▐',
+                [vim.diagnostic.severity.WARN] = '▐',
+                [vim.diagnostic.severity.HINT] = '▐',
+                [vim.diagnostic.severity.INFO] = '▐',
+                -- [vim.diagnostic.severity.ERROR] = '▌',
+                -- [vim.diagnostic.severity.WARN] = '▌',
+                -- [vim.diagnostic.severity.HINT] = '▌',
+                -- [vim.diagnostic.severity.INFO] = '▌',
                 -- [vim.diagnostic.severity.ERROR] = '▊',
                 -- [vim.diagnostic.severity.WARN] = '▊',
                 -- [vim.diagnostic.severity.HINT] = '▊',

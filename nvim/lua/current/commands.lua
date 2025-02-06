@@ -7,30 +7,6 @@ vim.cmd[[
   augroup END
 ]]
 
--- Dashboard Specific
--- open Dashboard if last buffer
--- vim.api.nvim_create_autocmd(
---     'BufWinLeave',
---     {
---         callback = function ()
---           local buffers = vim.fn.execute("ls")
---           local count = 0
---           -- Match only lines that represent buffers, typically starting with a number followed by a space
---           for line in string.gmatch(buffers, "[^\r\n]+") do
---             if string.match(line, "^%s*%d+") and not string.match(line, "No Name") then
---                 count = count + 1
---             end
---           end
-
-          -- if count == 0 then
-
-            -- print("Count is 0")
-              -- vim.cmd('Oil --float')
-          -- end
---         end,
---     }
--- )
-
 -- Open Dashboard through commandline if no arguments
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = vim.schedule_wrap(function(data)
@@ -44,7 +20,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.api.nvim_create_autocmd('CmdlineLeave', {
   pattern = '*',
   callback = function()
-    vim.cmd('echom ""')
+    -- vim.cmd('echom ""')
+    -- Test
   end,
 })
 

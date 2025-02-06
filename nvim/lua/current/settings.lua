@@ -1,8 +1,3 @@
--- local global = vim.g
--- local o = vim.o
-
-vim.cmd.colorscheme "kanagawa-wave"
-
 local options = {
 	relativenumber = true,
 	number = true,
@@ -13,7 +8,7 @@ local options = {
 	expandtab = true,
 	autoindent = true,
 	smartindent = true,
-	hidden = true,
+	hidden = false,
 	cursorline = true,
 	wrap = false,
 	showmode = false,
@@ -21,10 +16,9 @@ local options = {
   laststatus = 3,
   cmdheight = 1,
   signcolumn = 'yes',
-	statuscolumn = '%@NumCb@%4r%=%T %@SignCb@%s%=%T'
+	statuscolumn = '%@NumCb@%4r%=%T %@SignCb@%s%=%T',
 }
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-

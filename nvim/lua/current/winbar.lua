@@ -15,23 +15,22 @@
     -- return full_path:gsub(vim.fn.expand("$HOME"), "🏠")
     return full_path:gsub(vim.fn.expand("$HOME"), " ")
   end
-  -- Function to get the number of open buffers using the :ls command
-  local function get_buffer_count()
-    local buffers = vim.fn.execute("ls")
-    local count = 0
-    -- Match only lines that represent buffers, typically starting with a number followed by a space
-    for line in string.gmatch(buffers, "[^\r\n]+") do
-      if string.match(line, "^%s*%d+") and not string.match(line, "No Name") and not string.match(line, "oil://") then
-          -- print(line)
-          count = count + 1
-      end
-    end
-    return count
-  end
+  -- -- Function to get the number of open buffers using the :ls command
+  -- local function get_buffer_count()
+  --   local buffers = vim.fn.execute("ls")
+  --   local count = 0
+  --   -- Match only lines that represent buffers, typically starting with a number followed by a space
+  --   for line in string.gmatch(buffers, "[^\r\n]+") do
+  --     if string.match(line, "^%s*%d+") and not string.match(line, "No Name") and not string.match(line, "oil://") then
+  --         count = count + 1
+  --     end
+  --   end
+  --   return count
+  -- end
 
   -- Function to update the winbar
   local function update_winbar()
-    local buffer_count = get_buffer_count()
+    local buffer_count = GetBufferCount()
     local home_replaced = get_winbar_path()
     if buffer_count > 0 then
       vim.opt.winbar = "%#WinBar1#("

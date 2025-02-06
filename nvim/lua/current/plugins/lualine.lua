@@ -36,7 +36,7 @@ return {
 
     local config = {
       options = {
-        component_separators = ">",
+        component_separators = "",
         section_separators = "",
         always_show_tabline = false,
         theme = {
@@ -64,7 +64,7 @@ return {
         lualine_x = {},
         },
       tabline = {
-        lualine_a = {'filename'},
+        lualine_a = {},
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
@@ -120,18 +120,11 @@ return {
 
     local mode_color = {
       n = palette_colors.oldWhite,
-      i = palette_colors.fujiWhite,
-      v = palette_colors.springGreen,
-      [''] = palette_colors.springBlue,
-      V = palette_colors.autumnGreen,
+      i = palette_colors.roninYellow,
+      v = palette_colors.crystalBlue,
+      [''] = palette_colors.oldWhite,
+      V = palette_colors.springBlue,
     }
-
-    -- winbar_data {
-    --   'filename',
-    --   path = 3,
-    --   cond = conditions.buffer_not_empty,
-    --   color = { 'palette_colors.oldWhite' }
-    -- }
 
     -- left items
     ins_left {
@@ -154,8 +147,6 @@ return {
       -- padding = { right = 1 }
     }
 
-    -- ins_left { 'location' }
-
     ins_left {
       'branch',
       cond = conditions.check_git_workspace,
@@ -166,7 +157,7 @@ return {
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = palette_colors.waveBlue2, gui = 'bold' },
+      color = { fg = palette_colors.waveRed, gui = 'bold' },
     }
 
     -- right items
