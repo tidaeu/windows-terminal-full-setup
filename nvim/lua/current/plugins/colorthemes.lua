@@ -27,12 +27,14 @@ return {
         local theme = colors.theme
         local palette = colors.palette
         return {
-          GitSignsAdd = { fg = "#000000" },
-          GitSignsChange = { fg = "#000000" },
-          DiagnosticError = { fg = palette.peachRed },
-          DiagnosticWarn = { fg = palette.surimiOrange },
-          DiagnosticInfo = { fg = palette.springGreen },
-          DiagnosticsHint = { fg = palette.crystalBlue },
+          GitSignsAdd = { fg = palette.carpYellow },
+          GitSignsChange = { fg = palette.carpYellow },
+
+          DiagnosticSignError = { fg = palette.samuraiRed },
+          DiagnosticSignWarn = { fg = palette.peachRed },
+          DiagnosticSignInfo = { fg = palette.lightBlue },
+          DiagnosticsSignHint = { fg = palette.crystalBlue },
+
           NormalFloat = { bg = 'none' },
           FloatBorder = { bg = 'none' },
           FloatTitle = { bg = 'none' },
@@ -54,18 +56,10 @@ return {
     vim.diagnostic.config({
         signs = {
             text = {
-                [vim.diagnostic.severity.ERROR] = '▐',
-                [vim.diagnostic.severity.WARN] = '▐',
-                [vim.diagnostic.severity.HINT] = '▐',
-                [vim.diagnostic.severity.INFO] = '▐',
-                -- [vim.diagnostic.severity.ERROR] = '▌',
-                -- [vim.diagnostic.severity.WARN] = '▌',
-                -- [vim.diagnostic.severity.HINT] = '▌',
-                -- [vim.diagnostic.severity.INFO] = '▌',
-                -- [vim.diagnostic.severity.ERROR] = '▊',
-                -- [vim.diagnostic.severity.WARN] = '▊',
-                -- [vim.diagnostic.severity.HINT] = '▊',
-                -- [vim.diagnostic.severity.INFO] = '▊',
+                [vim.diagnostic.severity.ERROR] = '▎',
+                [vim.diagnostic.severity.WARN] = '▎',
+                [vim.diagnostic.severity.HINT] = '▎',
+                [vim.diagnostic.severity.INFO] = '▎',
             },
         },
     })

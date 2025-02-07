@@ -17,13 +17,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- Clear command line immediately after execution
-vim.api.nvim_create_autocmd('CmdlineLeave', {
-  pattern = '*',
-  callback = function()
-    -- vim.cmd('echom ""')
-    -- Test
-  end,
-})
+-- vim.api.nvim_create_autocmd('CmdlineLeave', {
+--   pattern = '*',
+--   callback = function()
+--     -- vim.cmd('echom ""')
+--     -- Test
+--   end,
+-- })
 
 -- Function to close Oil
 local function close_oil()
