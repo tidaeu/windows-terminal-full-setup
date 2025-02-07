@@ -25,6 +25,10 @@ return {
                       ['<C-s>h'] = require('telescope.actions').select_horizontal,
                   },
               },
+              display = {
+                -- other display settings...
+                commands = false,  -- Disable command notifications
+              },
           },
       })
     end

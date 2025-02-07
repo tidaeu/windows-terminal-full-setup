@@ -15,7 +15,6 @@ format = '[on](#7f745b) [$symbol$branch(:$remote_branch)]($style)'
 
 [git_status]
 format = '$all_status$ahead_behind '
-up_to_date = " 🧼"
 staged = " 🚅"
 modified = " 🚀"
 deleted = " ❌"
