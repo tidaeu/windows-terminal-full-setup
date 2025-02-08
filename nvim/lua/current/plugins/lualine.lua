@@ -39,9 +39,10 @@ return {
         component_separators = "",
         section_separators = "",
         always_show_tabline = false,
+        globalstatus = false,
         theme = {
           normal = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg } },
-          inactive = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg} },
+          inactive = { c = { fg = palette_colors.crystalBlue or "#ffffff", bg = transparentbg} },
         },
       },
       sections = {
@@ -110,14 +111,6 @@ return {
       ['MORE'] = 'M',
     }
 
-    local function ins_left(component)
-      table.insert(config.sections.lualine_c, component)
-    end
-
-    local function ins_right(component)
-      table.insert(config.sections.lualine_x, component)
-    end
-
     local mode_color = {
       n = palette_colors.oldWhite,
       i = palette_colors.roninYellow,
@@ -126,7 +119,17 @@ return {
       V = palette_colors.springBlue,
     }
 
-    -- left items
+    local function ins_left(component)
+      table.insert(config.sections.lualine_c, component)
+      table.insert(config.inactive_sections.lualine_c, component)
+    end
+
+    local function ins_right(component)
+      table.insert(config.sections.lualine_x, component)
+      table.insert(config.inactive_sections.lualine_x, component)
+    end
+
+    -- left item
     ins_left {
       function()
         return '▊'
