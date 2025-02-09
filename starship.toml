@@ -21,6 +21,7 @@ deleted = " ❌"
 renamed = " 🎎"
 conflicted = " ☄️"
 untracked = " 🐣"
+stashed = " 🗃️"
 
 [lua]
 symbol = " "
