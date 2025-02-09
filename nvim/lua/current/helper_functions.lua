@@ -39,7 +39,7 @@ function FindHiddenBufferOrCreateNew()
     end
 end
 
-function GetBufferCount()
+function getBufferCount()
     local buffers = vim.fn.execute("ls")
     local count = 0
     -- Match only lines that represent buffers, typically starting with a number followed by a space

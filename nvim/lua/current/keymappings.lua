@@ -2,6 +2,10 @@
 vim.g.mapleader = ' '
 vim.keymap.set("n", "<localleader>", '<cmd>lua require("which-key").show("\\\\")<cr>')
 
+-- Back and Forth Navigation
+vim.api.nvim_set_keymap('n', '<A-i>', '<C-o>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-o>', '<C-i>', { noremap = true, silent = true })
+
 -- Split Navigation
 vim.api.nvim_set_keymap('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })

@@ -23,20 +23,13 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<localleader>", '<cmd>lua require("which-key").show("\\\\")<cr>')
 vim.g.maplocalleader = "\\"
 
--- local opt = {}
--- local plugins = {
--- 	"LazyVim/LazyVim",
---   	"rebelot/kanagawa.nvim" 
--- }
-
--- require("lazy").setup(plugins, opt)
--- vim.cmd('colorscheme kanagawa-wave')
 --
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "current.plugins" },
+    { import = "current.plugins.lsp" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
