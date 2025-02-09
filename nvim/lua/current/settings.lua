@@ -13,7 +13,7 @@ local options = {
 	wrap = false,
 	showmode = false,
   ruler = false,
-  laststatus = 3,
+  laststatus = 2,
   cmdheight = 1,
   signcolumn = 'yes',
 	statuscolumn = '%@NumCb@%4r%=%T %@SignCb@%s%=%T',

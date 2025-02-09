@@ -30,8 +30,8 @@ return {
           GitSignsAdd = { fg = palette.carpYellow },
           GitSignsChange = { fg = palette.carpYellow },
 
-          DiagnosticSignError = { fg = palette.samuraiRed },
-          DiagnosticSignWarn = { fg = palette.peachRed },
+          DiagnosticSignError = { fg = palette.peachRed },
+          DiagnosticSignWarn = { fg = palette.crystalBlue },
           DiagnosticSignInfo = { fg = palette.lightBlue },
           DiagnosticsSignHint = { fg = palette.crystalBlue },
 
@@ -56,10 +56,10 @@ return {
     vim.diagnostic.config({
         signs = {
             text = {
-                [vim.diagnostic.severity.ERROR] = '▎',
-                [vim.diagnostic.severity.WARN] = '▎',
-                [vim.diagnostic.severity.HINT] = '▎',
-                [vim.diagnostic.severity.INFO] = '▎',
+                [vim.diagnostic.severity.ERROR] = '┃',
+                [vim.diagnostic.severity.WARN] = '┃',
+                [vim.diagnostic.severity.HINT] = '┃',
+                [vim.diagnostic.severity.INFO] = '┃',
             },
         },
     })
