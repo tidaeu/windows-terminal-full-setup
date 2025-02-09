@@ -121,15 +121,21 @@ return {
 
     local function ins_left(component)
       table.insert(config.sections.lualine_c, component)
+    end
+
+    local function ins_left_inactive(component)
       table.insert(config.inactive_sections.lualine_c, component)
     end
 
     local function ins_right(component)
       table.insert(config.sections.lualine_x, component)
+    end
+
+    local function ins_right_inactive(component)
       table.insert(config.inactive_sections.lualine_x, component)
     end
 
-    -- left item
+    -- left item active
     ins_left {
       function()
         return '▊'
@@ -163,6 +169,37 @@ return {
       color = { fg = palette_colors.waveRed, gui = 'bold' },
     }
 
+    -- left item inactive
+    local inactiveColor = { fg = palette_colors.fujiGray }
+
+    ins_left_inactive {
+      function()
+        return '▊'
+      end,
+      color = inactiveColor,
+      padding = { left = 0, right = 1 },
+    }
+
+    ins_left_inactive {
+      'mode',
+      fmt = function(s) return mode_map[s] or s end,
+      gui='bold',
+      color = inactiveColor,
+    }
+
+    ins_left_inactive {
+      'branch',
+      cond = conditions.check_git_workspace,
+      icon = '',
+      color = inactiveColor,
+    }
+
+    ins_left_inactive {
+      'filename',
+      cond = conditions.buffer_not_empty,
+      color = inactiveColor,
+    }
+
     -- right items
 
     ins_right {
@@ -192,6 +229,37 @@ return {
       end,
       color = function()
         return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink,}
+      end,
+      padding = { left = 1, right = 2 },
+    }
+
+    ins_right_inactive {
+      'fileformat',
+      fmt = string.upper,
+      icons_enabled = true,
+      color = inactiveColor,
+    }
+
+    ins_right_inactive {
+      'diagnostics',
+      sources = { 'nvim_diagnostic' },
+      always_visible = true,
+      sections = {'error', 'warn', 'hint'},
+      symbols = {  error = '', warn = '', info = '', hint='' },
+      diagnostics_color = {
+        error = inactiveColor,
+        warn = inactiveColor,
+        info = inactiveColor,
+        hint= inactiveColor,
+      },
+    }
+
+    ins_right_inactive {
+      function()
+        return '▊'
+      end,
+      color = function()
+        return inactiveColor
       end,
       padding = { left = 1, right = 2 },
     }
