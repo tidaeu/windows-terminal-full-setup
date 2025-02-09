@@ -16,7 +16,7 @@ local options = {
   laststatus = 2,
   cmdheight = 1,
   signcolumn = 'yes',
-	statuscolumn = '%@NumCb@%4r%=%T %@SignCb@%s%=%T',
+  statuscolumn = '%4{v:relnum?v:relnum:v:lnum}%=%T %@SignCb@%s%=%T'
 }
 
 for k, v in pairs(options) do

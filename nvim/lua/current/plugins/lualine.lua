@@ -1,17 +1,3 @@
--- -------------------------
--- Eviline config for lualine
--- Author: shadmansaleh
--- Credit: glepnir
--- MIT license, see LICENSE for more details.
--- -------------------------
-
-
--- -------------------------
--- Implements Kanagawa
--- Reformatted sections
--- -------------------------
-
--- stylua: ignore
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {'rebelot/kanagawa.nvim'},
@@ -119,6 +105,12 @@ return {
       V = palette_colors.springBlue,
     }
 
+    local component_config = {
+      outer_padding = 1,
+      inner_padding = 0,
+      inactive_color = { fg = palette_colors.fujiGray }
+    }
+
     local function ins_left(component)
       table.insert(config.sections.lualine_c, component)
     end
@@ -143,7 +135,7 @@ return {
       color = function()
         return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink }
       end,
-      padding = { left = 0, right = 1 },
+      padding = { left = component_config.outer_padding, right = component_config.inner_padding },
     }
 
     ins_left {
@@ -153,7 +145,6 @@ return {
       color = function()
         return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink,}
       end,
-      -- padding = { right = 1 }
     }
 
     ins_left {
@@ -170,34 +161,34 @@ return {
     }
 
     -- left item inactive
-    local inactiveColor = { fg = palette_colors.fujiGray }
+    -- local inactiveColor = { fg = palette_colors.fujiGray }
 
     ins_left_inactive {
       function()
         return '▊'
       end,
-      color = inactiveColor,
-      padding = { left = 0, right = 1 },
+      color = component_config.inactive_color,
+      padding = { left = component_config.outer_padding, right = component_config.inner_padding },
     }
 
     ins_left_inactive {
       'mode',
       fmt = function(s) return mode_map[s] or s end,
       gui='bold',
-      color = inactiveColor,
+      color = component_config.inactive_color,
     }
 
     ins_left_inactive {
       'branch',
       cond = conditions.check_git_workspace,
       icon = '',
-      color = inactiveColor,
+      color = component_config.inactive_color,
     }
 
     ins_left_inactive {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = inactiveColor,
+      color = component_config.inactive_color,
     }
 
     -- right items
@@ -227,17 +218,15 @@ return {
       function()
         return '▊'
       end,
-      color = function()
-        return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink,}
-      end,
-      padding = { left = 1, right = 2 },
+      color = { fg = mode_color[vim.fn.mode()] },
+      padding = { left = component_config.inner_padding, right = component_config.outer_padding },
     }
 
     ins_right_inactive {
       'fileformat',
       fmt = string.upper,
       icons_enabled = true,
-      color = inactiveColor,
+      color = component_config.inactive_color,
     }
 
     ins_right_inactive {
@@ -247,10 +236,10 @@ return {
       sections = {'error', 'warn', 'hint'},
       symbols = {  error = '', warn = '', info = '', hint='' },
       diagnostics_color = {
-        error = inactiveColor,
-        warn = inactiveColor,
-        info = inactiveColor,
-        hint= inactiveColor,
+        error = component_config.inactive_color,
+        warn = component_config.inactive_color,
+        info = component_config.inactive_color,
+        hint= component_config.inactive_color,
       },
     }
 
@@ -258,10 +247,8 @@ return {
       function()
         return '▊'
       end,
-      color = function()
-        return inactiveColor
-      end,
-      padding = { left = 1, right = 2 },
+      color = component_config.inactive_color,
+      padding = { left = component_config.inner_padding, right = component_config.outer_padding },
     }
 
     require('lualine').setup(config)
