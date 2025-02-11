@@ -50,3 +50,12 @@ function getBufferCount()
     end
     return count
  end
+
+
+function show_diagnostics()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local diagnostics = vim.diagnostic.get(bufnr, { lnum = line })
+  if vim.tbl_isempty(diagnostics) then return end
+  vim.diagnostic.open_float()
+end

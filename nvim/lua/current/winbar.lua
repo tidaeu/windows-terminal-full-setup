@@ -9,13 +9,6 @@
   vim.cmd(string.format([[highlight WinBar2 guifg=%s]], palette_colors.oniViolet))
   vim.cmd(string.format([[highlight WinBar3 guifg=%s gui=bold]], palette_colors.surimiOrange))
 
-  -- Function to get the full path and replace the home directory with ~
-  -- local function get_winbar_path()
-  --   local full_path = vim.fn.expand("%:p")
-  --   -- return full_path:gsub(vim.fn.expand("$HOME"), "🏠")
-  --   return full_path:gsub(vim.fn.expand("$HOME"), " ")
-  -- end
-
   -- Function to update the winbar
   local function update_winbar()
     local buffer_count = getBufferCount()
