@@ -52,10 +52,13 @@ function getBufferCount()
  end
 
 
-function show_diagnostics()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local line = vim.api.nvim_win_get_cursor(0)[1] - 1
-  local diagnostics = vim.diagnostic.get(bufnr, { lnum = line })
-  if vim.tbl_isempty(diagnostics) then return end
-  vim.diagnostic.open_float()
+ function open_diagnostics_float()
+    local ns = vim.api.nvim_create_namespace('diagnostics')
+    vim.diagnostic.reset(ns, 0)
+    vim.diagnostic.set(ns, 0, {
+        { lnum = 0, col = 0, end_lnum = 2, end_col = 0, message = 'Example diagnostic' }
+    })
+    vim.diagnostic.open_float()
 end
+
+vim.cmd([[ command! OpenDiagnosticsFloat lua open_diagnostics_float() ]])

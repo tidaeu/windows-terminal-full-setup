@@ -8,7 +8,7 @@ return {
         -- your statuscolumn configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        left = { "mark", "sign" }, -- priority of signs on the left (high to low)
+        left = { "sign", "mark" }, -- priority of signs on the left (high to low)
         right = { "git", "fold" }, -- priority of signs on the right (high to low)
         folds = {
           open = false, -- show open fold icons

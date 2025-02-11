@@ -79,7 +79,7 @@ return {
 
     local mode_map = {
       ['NORMAL'] = 'N',
-      ['O-PENDING'] = 'N?',
+      ['O-PENDING'] = 'N',
       ['INSERT'] = 'I',
       ['VISUAL'] = 'V',
       ['V-BLOCK'] = 'VB',

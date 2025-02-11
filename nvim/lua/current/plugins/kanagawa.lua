@@ -30,6 +30,7 @@ return {
           GitSignsAdd = { fg = palette.carpYellow },
           GitSignsChange = { fg = palette.carpYellow },
 
+          DiagnosticUnderlineError = { undercurl = true, sp = palette.peachRed },
           DiagnosticSignError = { fg = palette.peachRed },
           DiagnosticSignWarn = { fg = palette.crystalBlue },
           DiagnosticSignInfo = { fg = palette.lightBlue },
@@ -52,18 +53,5 @@ return {
     }
 
     vim.cmd.colorscheme "kanagawa-wave"
-
-    vim.diagnostic.config({
-        signs = {
-            text = {
-                -- [vim.diagnostic.severity.ERROR] = '┃',
-                [vim.diagnostic.severity.ERROR] = '⮿',
-                -- [vim.diagnostic.severity.WARN] = '┃',
-                [vim.diagnostic.severity.WARN] = '🞅',
-                [vim.diagnostic.severity.HINT] = '⊛',
-                [vim.diagnostic.severity.INFO] = '⊛',
-            },
-        },
-    })
   end,
 }

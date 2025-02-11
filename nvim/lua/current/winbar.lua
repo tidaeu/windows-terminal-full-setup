@@ -24,9 +24,9 @@
       vim.opt.winbar = ""
     end
   end
-  --
+
 -- Autocmd to update the winbar on BufEnter and WinEnter events
-vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "BufLeave", "WinLeave" }, {
     callback = function()
         update_winbar()
     end,
