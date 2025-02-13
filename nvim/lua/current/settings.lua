@@ -16,7 +16,7 @@ local options = {
   laststatus = 2,
   cmdheight = 1,
   signcolumn = 'yes',
-  termguicolors = true
+  termguicolors = true,
 }
 
 for k, v in pairs(options) do
