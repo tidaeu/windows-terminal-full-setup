@@ -17,11 +17,20 @@ local options = {
   cmdheight = 1,
   signcolumn = 'yes',
   termguicolors = true,
+  keywordprg = ':help',
 }
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {
+    border = "single" -- You can also use "double", "rounded", "shadow"
+  }
+)
 
 vim.diagnostic.config {
   virtual_text = false,

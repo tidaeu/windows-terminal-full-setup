@@ -51,14 +51,13 @@ function getBufferCount()
     return count
  end
 
+function CloseFloatingWindow()
+  local win = vim.api.nvim_get_current_win()
+  local config = vim.api.nvim_win_get_config(win)
 
- function open_diagnostics_float()
-    local ns = vim.api.nvim_create_namespace('diagnostics')
-    vim.diagnostic.reset(ns, 0)
-    vim.diagnostic.set(ns, 0, {
-        { lnum = 0, col = 0, end_lnum = 2, end_col = 0, message = 'Example diagnostic' }
-    })
-    vim.diagnostic.open_float()
+  if config.relative ~= '' then
+    vim.api.nvim_win_close(win, true)
+  else
+    print("Not a floating window")
+  end
 end
-
-vim.cmd([[ command! OpenDiagnosticsFloat lua open_diagnostics_float() ]])

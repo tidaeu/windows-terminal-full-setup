@@ -23,3 +23,5 @@ vim.keymap.set('n', '<leader>w', '<cmd>bd<CR>')
 -- vim.keymap.set('n', 'gE', '<cmd>vim.diagnostic.goto_prev<CR>')
 
 vim.api.nvim_set_keymap('n', '<C-d>', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Esc>', ':lua CloseFloatingWindow()<CR>', { noremap = true, silent = true })
