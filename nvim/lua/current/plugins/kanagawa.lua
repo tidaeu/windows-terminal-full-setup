@@ -29,6 +29,8 @@ return {
         return {
           GitSignsAdd = { fg = palette.carpYellow },
           GitSignsChange = { fg = palette.carpYellow },
+          GitSignsStagedAdd = { fg = palette.carpYellow },
+          GitSignsStagedChange = { fg = palette.carpYellow },
 
           DiagnosticUnderlineError = { undercurl = true, sp = palette.peachRed },
           DiagnosticSignError = { fg = palette.peachRed },

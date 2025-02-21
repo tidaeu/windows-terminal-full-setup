@@ -39,7 +39,7 @@ function FindHiddenBufferOrCreateNew()
     end
 end
 
-function getBufferCount()
+function GetBufferCount()
     local buffers = vim.fn.execute("ls")
     local count = 0
     -- Match only lines that represent buffers, typically starting with a number followed by a space
@@ -57,7 +57,31 @@ function CloseFloatingWindow()
 
   if config.relative ~= '' then
     vim.api.nvim_win_close(win, true)
-  else
-    print("Not a floating window")
   end
+end
+
+function ShowDiagnosticsOrDescription()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local diagnostics = vim.diagnostic.get(bufnr, { lnum = line })
+
+  if #diagnostics > 0 then
+    vim.diagnostic.open_float()
+  else
+    vim.lsp.buf.hover()
+  end
+end
+
+function GoToPrevError()
+  local opts = {
+    severity = vim.diagnostic.severity.ERROR,
+  }
+  vim.diagnostic.goto_prev(opts)
+end
+
+function GoToNextError()
+  local opts = {
+    severity = vim.diagnostic.severity.ERROR,
+  }
+  vim.diagnostic.goto_next(opts)
 end

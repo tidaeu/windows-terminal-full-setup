@@ -21,7 +21,14 @@ vim.keymap.set('n', '<leader>w', '<cmd>bd<CR>')
 
 -- vim.keymap.set('n', 'ge', '<cmd>vim.diagnostic.goto_next<CR>')
 -- vim.keymap.set('n', 'gE', '<cmd>vim.diagnostic.goto_prev<CR>')
-
-vim.api.nvim_set_keymap('n', '<C-d>', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('n', 'ge', ':lua GoToNextError()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gE', ':lua GoToPrevError()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Esc>', ':lua CloseFloatingWindow()<CR>', { noremap = true, silent = true })
+
+
+-- Glance
+vim.keymap.set('n', 'gD', '<CMD>Glance definitions<CR>')
+vim.keymap.set('n', 'gR', '<CMD>Glance references<CR>')
+vim.keymap.set('n', 'gY', '<CMD>Glance type_definitions<CR>')
+vim.keymap.set('n', 'gM', '<CMD>Glance implementations<CR>')

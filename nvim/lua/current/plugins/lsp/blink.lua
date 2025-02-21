@@ -27,7 +27,13 @@ return {
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 500,
+          treesitter_highlighting = true,
+          window = { border = "rounded" },
         },
+        menu = {
+          border = "rounded",
+          winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None',
+        }
       },
       appearance = {
         -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -48,4 +54,3 @@ return {
     opts_extend = { "sources.default" }
   }
 }
-

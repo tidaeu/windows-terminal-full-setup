@@ -9,7 +9,7 @@ return {
 
         require("mason-lspconfig").setup({
             automatic_installation = true,
-            ensure_installed = {"lua_ls", "jsonls", "tailwindcss","ts_ls","html","cssls","eslint"},
+            ensure_installed = {"lua_ls", "jsonls", "tailwindcss","vtsls","html","cssls","eslint"},
         })
 
         require("mason-tool-installer").setup({

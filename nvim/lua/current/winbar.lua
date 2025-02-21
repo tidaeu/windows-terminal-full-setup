@@ -11,7 +11,7 @@
 
   -- Function to update the winbar
   local function update_winbar()
-    local buffer_count = getBufferCount()
+    local buffer_count = GetBufferCount()
     if buffer_count > 0 then
       vim.opt.winbar = "%#WinBar1#("
       .. buffer_count
