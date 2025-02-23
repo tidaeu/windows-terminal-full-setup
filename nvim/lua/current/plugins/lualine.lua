@@ -26,8 +26,10 @@ return {
         section_separators = "",
         always_show_tabline = false,
         globalstatus = false,
+        section_height = 10,
         theme = {
-          normal = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg } },
+          normal = { c = { fg = "#ffffff", bg = palette_colors.sumiInk2 } },
+          -- normal = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg } },
           inactive = { c = { fg = palette_colors.crystalBlue or "#ffffff", bg = transparentbg} },
         },
       },

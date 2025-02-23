@@ -42,6 +42,25 @@ return {
           FloatBorder = { bg = 'none' },
           FloatTitle = { bg = 'none' },
 
+          GlanceWinBarFilename= { fg = palette.roninYellow }, -- Top bar and File Names
+          GlanceWinBarTitle = { fg = palette.oniViolet }, -- Top bar and File Names
+          GlanceWinBarFilepath = { fg = palette.oniViolet }, -- Top bar and File Names
+          -- GlancePreviewNormal = {bg = "#252535" }, -- Background Preview 
+          -- GlanceListNormal = {bg = "#252535" }, -- Background Preview 
+          GlancePreviewNormal = {bg = palette.sumiInk2 }, -- Background Preview 
+          GlanceListNormal = {bg = palette.sumiInk2 }, -- Background Preview 
+          -- GlanceBorderTop = {bg = "#2D4F67"}, -- Top bar and File Names
+          GlanceBorderTop = {bg = "none"}, -- Top bar and File Names
+          -- GlanceBorderBottom = {bg = "#2D4F67" }, -- Top bar and File Names
+          -- GlancePreviewBorderBottom = {bg = "none" }, -- Top bar and File Names
+          -- GlanceListBorderBottom = {bg = "none" }, -- Top bar and File Names
+          -- GlanceIndent = {bg = "#252535" }, -- Top bar and File Names
+          -- GlancePreviewLineNr = {bg = "#252535" }, -- Top bar and File Names
+          -- GlancePreviewSignColumn = {bg = "#252535" }, -- Top bar and File Names
+          -- GlancePreviewEndOfBuffer = {bg = "#252535" }, -- Top bar and File Names
+          -- GlanceListCursorLine  = {bg = "#363646" }, -- Top bar and File Names
+          GlanceFolderIcon = { bg = "#000000" },
+
           -- Save an hlgroup with dark background and dimmed foreground
           -- so that you can use it where your still want darker windows.
           -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark

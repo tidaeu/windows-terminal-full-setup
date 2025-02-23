@@ -5,6 +5,7 @@
   local kanagawa = require('kanagawa.colors')
   local palette_colors = kanagawa.setup().palette
 
+  -- move this to Kanagawa?? Or maybe colors should go with the file?...
   vim.cmd(string.format([[highlight WinBar1 guifg=%s]], palette_colors.roninYellow))
   vim.cmd(string.format([[highlight WinBar2 guifg=%s]], palette_colors.oniViolet))
   vim.cmd(string.format([[highlight WinBar3 guifg=%s gui=bold]], palette_colors.surimiOrange))

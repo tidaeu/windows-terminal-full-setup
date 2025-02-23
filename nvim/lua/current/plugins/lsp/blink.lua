@@ -28,10 +28,10 @@ return {
           auto_show = true,
           auto_show_delay_ms = 500,
           treesitter_highlighting = true,
-          window = { border = "rounded" },
+          -- window = { border = "rounded" },
         },
         menu = {
-          border = "rounded",
+          -- border = "rounded",
           winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None',
         }
       },

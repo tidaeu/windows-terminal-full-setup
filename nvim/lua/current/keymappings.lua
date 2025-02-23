@@ -24,11 +24,12 @@ vim.keymap.set('n', '<leader>w', '<cmd>bd<CR>')
 vim.api.nvim_set_keymap('n', 'ge', ':lua GoToNextError()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gE', ':lua GoToPrevError()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Esc>', ':lua CloseFloatingWindow()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'Q', ':lua CloseFloatingWindow()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'K', ':lua ShowDiagnosticsOrDescription()<CR>', { noremap = true, silent = true })
 
 
 -- Glance
-vim.keymap.set('n', 'gD', '<CMD>Glance definitions<CR>')
-vim.keymap.set('n', 'gR', '<CMD>Glance references<CR>')
-vim.keymap.set('n', 'gY', '<CMD>Glance type_definitions<CR>')
-vim.keymap.set('n', 'gM', '<CMD>Glance implementations<CR>')
+vim.keymap.set('n', 'gd', '<CMD>Glance definitions<CR>')
+vim.keymap.set('n', 'gr', '<CMD>Glance references<CR>')
+vim.keymap.set('n', 'gy', '<CMD>Glance type_definitions<CR>')
+vim.keymap.set('n', 'gi', '<CMD>Glance implementations<CR>')
